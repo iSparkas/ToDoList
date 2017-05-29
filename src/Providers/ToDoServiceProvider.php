@@ -21,7 +21,7 @@ use ToDoList\Repositories\ToDoRepository;
       
       public function register() {
           $this->getApplication()->register(ToDoRouteServiceProvider::class);
-          $this->getApplication()->bind(ToDoRepositoryContract::class);
+          $this->getApplication()->bind(ToDoRepositoryContract::class, ToDoRepository::class);
       }
       
       public function boot(RefferenceContainer $refferenceContainer){
