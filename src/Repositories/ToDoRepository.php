@@ -59,8 +59,35 @@ class ToDoRepository implements TodoRepositoryContract {
             $toDo->userId = $this->getCurrenctContactId();
             $toDo->CreatedAt = time();
             $database->save($toDo);
-            
+            return $toDo;
        }
+       
+       /**
+        * Update the status of the item
+        * 
+        * @param int $id
+        * @return ToDo
+        */
+        
+        public function updateTask($id): ToDO{
+            
+            /**
+             * @var DataBase $database 
+             */
+             
+             $databse = pluginApp(DataBase::class);
+             
+             $toDoList = $database->query(ToDo::class);
+                ->where('id', '=', $id);
+                ->get();
+                
+                $toDo = $toDoList[0];
+                $database->delete($toDo);
+                
+                return $toDo;
+        }
+        
+        
       
       
 }
