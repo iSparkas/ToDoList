@@ -19,7 +19,7 @@ class CreateToDoTable {
     */
     
     public function run(Migrate $migrate){
-        $migrate->createTable($ToDO::class);
+        $migrate->createTable(ToDo::class);
         $this->getLogger("CreateToDoTable_run")->debug('ToDoList::migration.successMessage', ['table_name' => 'ToDo']);
     }
 }

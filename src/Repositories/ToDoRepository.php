@@ -1,16 +1,16 @@
 <?php 
 
-namespace ToDList\Reposotries;
+namespace ToDoList\Reposotries;
 
 use Plety\Execptions\ValidationEception;
-use Plenty\Modules\Plugin\Database\Contracts\Database;
-use ToDoList\Contracts\TodoRepositoryContract;
+use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
+use ToDoList\Contracts\ToDoRepositoryContract;
 use ToDoList\Models\ToDo;
 use ToDoList\Validators\ToDoValidator;
 use Plenty\Modules\Frontend\Services\AccountService;
 
 
-class ToDoRepository implements TodoRepositoryContract {
+class ToDoRepository implements ToDoRepositoryContract {
     
     /**
      * @var AccountService
@@ -46,7 +46,7 @@ class ToDoRepository implements TodoRepositoryContract {
        public function createTast(array $data): ToDo {
            try {
               ToDoValidator::validateOrFail($data);
-           } catch (ValkidationException $e){
+           } catch (ValidationException $e){
             throw $e;   
            }
            
