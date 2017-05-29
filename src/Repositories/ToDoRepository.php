@@ -64,6 +64,24 @@ class ToDoRepository implements ToDoRepositoryContract {
        }
        
        /**
+        * List all items of the To Do list
+        *
+        * @return ToDo[]
+        */
+       public function getToDoList(): array
+       {
+           $database = pluginApp(DataBase::class);
+    
+           $id = $this->getCurrentContactId();
+           /**
+            * @var ToDo[] $toDoList
+            */
+           $toDoList = $database->query(ToDo::class)->where('userId', '=', $id)->get();
+           return $toDoList;
+       }
+       
+       
+       /**
         * Update the status of the item
         * 
         * @param int $id
@@ -86,6 +104,30 @@ class ToDoRepository implements ToDoRepositoryContract {
                 $database->delete($toDo);
                 
                 return $toDo;
+        }
+        
+            /**
+             * Delete an item from the To Do list
+             *
+             * @param int $id
+             * @return ToDo
+             */
+            public function deleteTask($id): ToDo
+            {
+                /**
+                 * @var DataBase $database
+                 */
+                $database = pluginApp(DataBase::class);
+         
+                $toDoList = $database->query(ToDo::class)
+                    ->where('id', '=', $id)
+                    ->get();
+         
+                $toDo = $toDoList[0];
+                $database->delete($toDo);
+         
+                return $toDo;
+            }
         }
         
         
