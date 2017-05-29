@@ -3,7 +3,7 @@
     "description"       : "A simple ToDo List",
     "namesapce"         : "ToDoList",
     "author"            : "name",
-    "type"              : "tempalte",
-    "serviceProvider"   : "ToDoList\\Providers\\ToDOServiceProvider\\",
+    "type"              : "template",
+    "serviceProvider"   : "ToDoList\\Providers\\ToDoServiceProvider\\",
     "runOnBuild"        : ["ToDOList\\Migrations\\CreateToDoTable"],
 }

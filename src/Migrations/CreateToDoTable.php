@@ -1,6 +1,6 @@
 <?php
 
-namespace TodoLiust\Migrations;
+namespace ToDoList\Migrations;
 
 use ToDoList\Models\ToDo;
 use Plenty\Modules\Plugin\Database\Contracts\Migrate;
