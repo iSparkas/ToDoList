@@ -20,7 +20,7 @@ use Plenty\Plugin\Routing\Router;
       public function map(Router $router){
           $router->get('todo', 'ToDoList\Controllers\ContentController@showToDo');
           $router->post('todo', 'ToDoList\Controllers\ContentController@createToDo');
-          $router->put('todo/{id}', 'ToDolist\Controllers\ContentController@updateToDO');
-          $router->delete('todo/{id}', 'ToDoList\Controllers\ContentController@deleteToDo');
+          $router->put('todo/{id}', 'ToDolist\Controllers\ContentController@updateToDO')->where('id', '\d+');
+          $router->delete('todo/{id}', 'ToDoList\Controllers\ContentController@deleteToDo')->where('id', '\d+');
       }
  }
