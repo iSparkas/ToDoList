@@ -4,6 +4,6 @@
     "namesapce"         : "ToDoList",
     "author"            : "name",
     "type"              : "template",
-    "serviceProvider"   : "ToDoList\\Providers\\ToDoServiceProvider\\",
-    "runOnBuild"        : ["ToDOList\\Migrations\\CreateToDoTable"],
+    "serviceProvider"   : "ToDoList\\Providers\\ToDoServiceProvider",
+    "runOnBuild"        : ["ToDOList\\Migrations\\CreateToDoTable"]
 }
