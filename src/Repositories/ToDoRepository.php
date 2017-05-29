@@ -12,9 +12,9 @@ use Plenty\Modules\Frontend\Services\AccountService;
 
 class ToDoRepository implements TodoRepositoryContract {
     
-     /**
+    /**
      * @var AccountService
-    */
+     */
     
     private $accountService;
     
