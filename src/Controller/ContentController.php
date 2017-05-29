@@ -44,7 +44,7 @@ use Plenty\Plugin\Log\Loggable;
           ->getLogger("contentController_createToDo")
           ->setRefferenceType("ToDoId")
           ->setRefferenceValue($newToDoId->id)
-          ->info("ToDoList.createToDoInformaction",['userId' => $newToDo->userId ]);
+          ->info("ToDoList.createToDoInformation",['userId' => $newToDo->userId ]);
           
       }
       
@@ -67,7 +67,7 @@ use Plenty\Plugin\Log\Loggable;
        */
        
        public function deleteToDo(int $id, ToDoRepositoryContract $toDoRepo): string {
-           $deleteToDo = $toDoRepo->deleteTast($id);
+           $deleteToDo = $toDoRepo->deleteTask($id);
            return json_encode($deleteToDo);
        }
      
