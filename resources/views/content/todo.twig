@@ -1,1 +1,50 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
+        
+        <!-- Css links to main.css -->
+        <link rel = "stylesheet" href = "{{ plugin_path('ToDoList') }}/css/main.css"/>
+        
+        <!-- Links to jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    </head>
+<body>
+    
+    <!-- To Do List -->
+    <div class = "list">
+        
+        <h1 class = "header">Things to do</h1>
+        
+        <ul class = "tasks">
+            
+            {% if tasks is not null %}
+            
+                {%for task in tasks %}
+                    
+                    <li>
+                        <span class = "task {% if task.isDone == 1 %} done {% endif %}">{{ task.taskDescription }}</span>
+                        {% if task.isDone == 1 %}
+                            <button id = "{{ task.id }}" class = "delete-button">Delete From The List</button>
+                        {% else %}
+                            <button id = "{{ task.id }}" class = "done-button">Mark As Done</button>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        
+        <!-- Form -->
+        <div class = "task-add">
+            <input type = "text" name = "taskDesdcription" placeholder = "Enter your task here" class = "input" autocomplete = "off"/>
+            <input type = "submit" id = "addTask" value = "Add" class = "submit">
+        </div>
+        
+        <!-- Add JS -->
+        <script src = "{{ plugin_path('ToDoList') }}/js/todo.js"></script>
+    </div>
+    
+</body>
+</html>
 
