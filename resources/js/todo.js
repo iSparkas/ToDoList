@@ -16,6 +16,7 @@ $('#addTask').click(function(){
            '<button id = "'+ data.id +'" class = "done-button">Mark As Done</button>'+
            '</li>'
            );
+           nameInput.val("");
        },
        error: function(data) {
            alert("Error in adding item to the list");
@@ -25,7 +26,7 @@ $('#addTask').click(function(){
 
 // add functionality to update button
 
-$(document).on('click', 'button.done-button', function(e)){
+$(document).on('click', 'button.done-button', function(e){
     var button = this;
     var id = button.id;
     $.ajax({
@@ -41,7 +42,7 @@ $(document).on('click', 'button.done-button', function(e)){
             alert("Error in updating item status in the list");
         }
     });
-}
+});
 
 // Delete a task from the To Do list 
 $(document).on('click', 'button.delete-button', function(e) {
