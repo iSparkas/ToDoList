@@ -1,1 +1,9 @@
-
+{
+    "name"              : "ToDoList",
+    "description"       : "A simple ToDo List",
+    "namesapce"         : "ToDoList",
+    "author"            : "name",
+    "type"              : "tempalte",
+    "serviceProvider"   : "ToDoList\\Providers\\ToDOServiceProvider\\",
+    "runOnBuild"        : ["ToDOList\\Migrations\\CreateToDoTable"],
+}
