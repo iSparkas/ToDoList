@@ -42,3 +42,21 @@ $(document).on('click', 'button.done-button', function(e)){
         }
     });
 }
+
+// Delete a task from the To Do list 
+$(document).on('click', 'button.delete-button', function(e) {
+    var button = this;
+    var id = button.id;
+    $.ajax({
+        type: "DELETE",
+        url: "/todo/" + id,
+        success: function(data)
+        {
+            $("#" + id).parent().remove();
+        },
+        error: function(data)
+        {
+            alert("ERROR");
+        }
+    });
+});
