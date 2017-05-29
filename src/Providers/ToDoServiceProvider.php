@@ -23,5 +23,14 @@ use ToDoList\Repositories\ToDoRepository;
           $this->getApplication()->register(ToDoRouteServiceProvider::class);
           $this->getApplication()->bind(ToDoRepositoryContract::class);
       }
+      
+      public function boot(RefferenceContainer $refferenceContainer){
+          // register refference type for logs
+          try {
+              $refferenceContainer->add(["toDoId"=>"toDoId"]);
+          } catch(RefferenceTypeException $ex) {
+              
+          }
+      }
      
  }

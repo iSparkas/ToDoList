@@ -6,6 +6,7 @@ use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Templates\Twig;
 use ToDoList\Contracts\ToDoRepositoryContract;
+use Plenty\Plugin\Log\Loggable;
 
 
 /**
@@ -15,15 +16,36 @@ use ToDoList\Contracts\ToDoRepositoryContract;
  
  class ContentController extends Controller {
      
+     use Loggable;
+     
      /**
-      * @param Twig $twig
-      * @param ToDoRepopsitoryContract $toDoRepo
+      * @param Twig                   $twig
+      * @param ToDoRepositoryContract $toDoRepo
       * @return string
       */
+      public function showToDo(Twig $twig, ToDoRepositoryContract $toDoRepo): string {
+         $toDoList = $toDoRepo->getToDoList();
+         $templateData = array("tasks" => $toDoList);
+         return $twig->render('ToDoList::content.todo', $templateData);
+      }
       
-      public function shotToDo(Twig, $twig, ToDoRepository $toDoRepo): string {
-          $newToDo = $toDoRepo->createTask($request->all());
-          return json_encode($newToDo);
+        /**
+        * @param  \Plenty\Plugin\Http\Request $request
+        * @param ToDoRepositoryContract       $toDoRepo
+        * @return string
+        */
+        
+      public function createToDo(Request, $request, ToDoRepositoryContract $toDoRepo): string{
+          $newToDo = $toDoRepo->createTask(requrest->all());
+          
+          // add logging here
+          
+          $this
+          ->getLogger("contentController_createToDo")
+          ->setRefferenceType("ToDoId")
+          ->setRefferenceValue($newToDoId->id)
+          ->info("ToDoList.createToDoInformaction",['userId' => $newToDo->userId ]);
+          
       }
       
       /**
