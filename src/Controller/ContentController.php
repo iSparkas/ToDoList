@@ -46,6 +46,8 @@ use Plenty\Plugin\Log\Loggable;
           ->setRefferenceValue($newToDoId->id)
           ->info("ToDoList.createToDoInformation",['userId' => $newToDo->userId ]);
           
+          return json_encode($newToDo);
+          
       }
       
       /**

@@ -5,6 +5,8 @@ namespace ToDoList\Providers;
 use Plenty\Plugin\ServiceProvider;
 use ToDoList\Contracts\ToDoRepositoryContract;
 use ToDoList\Repositories\ToDoRepository;
+use Plenty\Log\Services\ReferenceContainer;
+use Plenty\Log\Exceptions\ReferenceTypeException;
 
 
 
